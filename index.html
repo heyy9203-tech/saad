@@ -1,23 +1,12 @@
-Here is a complete, modern, and interactive portfolio website for Barrister Saad Andalib Aristu. You can deploy this single HTML file to Vercel or GitHub Pages.
-```html
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ব্যারিস্টার সাদ আন্দালিব আরিস্তু | আইন পেশাদার পোর্টফোলিও</title>
-    <!-- Google Fonts + Font Awesome -->
+    <!-- Google Fonts + Font Awesome CDN (stable) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Three.js Core & GSAP -->
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
-                "gsap": "https://unpkg.com/gsap@3.12.5/index.js"
-            }
-        }
-    </script>
     <style>
         * {
             margin: 0;
@@ -50,7 +39,7 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
             right: 5%;
             width: 90%;
             margin: 0 auto;
-            background: rgba(10, 10, 18, 0.65);
+            background: rgba(10, 10, 18, 0.75);
             backdrop-filter: blur(14px);
             border-radius: 2rem;
             padding: 0.9rem 2rem;
@@ -91,6 +80,7 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
             transition: 0.2s;
             font-size: 1rem;
             letter-spacing: -0.2px;
+            cursor: pointer;
         }
         .nav-links a:hover {
             color: #FBC490;
@@ -105,7 +95,6 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        /* main container */
         main {
             position: relative;
             z-index: 5;
@@ -228,7 +217,6 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
             margin-bottom: 1rem;
         }
 
-        /* expertise section */
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -265,7 +253,6 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
             margin-bottom: 1rem;
         }
 
-        /* about section  */
         .about-wrap {
             display: flex;
             gap: 3rem;
@@ -286,15 +273,12 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
             border-radius: 2rem;
             padding: 2rem;
         }
-
-        /* timeline / education */
         .timeline-item {
             border-left: 2px solid #FBC490;
             padding-left: 1.5rem;
             margin-bottom: 1.8rem;
         }
 
-        /* contact form modern */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -348,8 +332,19 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
             font-size: 1.4rem;
             margin: 0 8px;
             transition: 0.2s;
+            display: inline-block;
         }
         .social-links a:hover { color: #FBC490;}
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -362,33 +357,32 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
         <span>Saad Andalib Aristu | Barrister-at-Law</span>
     </div>
     <div class="nav-links">
-        <a href="#home">হোম</a>
-        <a href="#expertise">বিশেষজ্ঞতা</a>
-        <a href="#about">পরিচয়</a>
-        <a href="#contact">যোগাযোগ</a>
-        <a href="#contact" class="btn-consult">ফ্রি কনসালটেশন</a>
+        <a class="nav-link" data-target="home">হোম</a>
+        <a class="nav-link" data-target="expertise">বিশেষজ্ঞতা</a>
+        <a class="nav-link" data-target="about">পরিচয়</a>
+        <a class="nav-link" data-target="contact">যোগাযোগ</a>
+        <a class="nav-link btn-consult" data-target="contact">ফ্রি কনসালটেশন</a>
     </div>
 </nav>
 
 <main>
-    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="hero-content fade-up">
             <div class="hero-badge"><i class="fas fa-gavel"></i> আইন ও ন্যায়ের পথপ্রদর্শক</div>
             <h1>Saad Andalib <br> Aristu, Barrister</h1>
             <div class="hero-title">বাংলাদেশ সুপ্রীম কোর্টের আইনজীবী | মানবাধিকার ও কর্পোরেট আইন বিশেষজ্ঞ</div>
-            <div class="hero-desc">২০+ বছরের অভিজ্ঞতা, আন্তর্জাতিক আইন ও স্থানীয় ন্যায়ব্যবস্থায় দক্ষতা। কৌশলী আইনি প্রতিনিধিত্ব ও আধুনিক সমাধান।</div>
+            <div class="hero-desc">১৫+ বছরের অভিজ্ঞতা, আন্তর্জাতিক আইন ও স্থানীয় ন্যায়ব্যবস্থায় দক্ষতা। কৌশলী আইনি প্রতিনিধিত্ব ও আধুনিক সমাধান।</div>
             <div class="hero-stats">
                 <div class="stat-item"><h3>২৫০+</h3><p>মামলায় সাফল্য</p></div>
                 <div class="stat-item"><h3>১৫+</h3><p>বছর অনুশীলন</p></div>
                 <div class="stat-item"><h3>৯৮%</h3><p>ক্লায়েন্ট সন্তুষ্টি</p></div>
             </div>
             <div class="cta-group">
-                <a href="#contact" class="btn-primary"><i class="fas fa-calendar-alt"></i> অ্যাপয়েন্টমেন্ট</a>
-                <a href="#about" class="btn-outline"><i class="fas fa-arrow-right"></i> জীবনবৃত্তান্ত</a>
+                <a class="btn-primary nav-link" data-target="contact"><i class="fas fa-calendar-alt"></i> অ্যাপয়েন্টমেন্ট</a>
+                <a class="btn-outline nav-link" data-target="about"><i class="fas fa-arrow-right"></i> জীবনবৃত্তান্ত</a>
             </div>
         </div>
-        <div class="hero-visual">
+        <div class="hero-visual fade-up">
             <div class="floating-card">
                 <i class="fas fa-balance-scale"></i>
                 <h3>এক্সিলেন্স ইন জাস্টিস</h3>
@@ -398,33 +392,31 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
         </div>
     </section>
 
-    <!-- Expertise Section -->
     <section id="expertise">
         <div class="section-title"><span>আইনি দক্ষতা</span> ও বিশেষায়িত ক্ষেত্র</div>
         <div class="expertise-grid">
-            <div class="expert-card"><i class="fas fa-building"></i><h3>কর্পোরেট আইন</h3><p>কোম্পানি গঠন, মার্জার, শেয়ারহোল্ডার ইস্যু এবং বাণিজ্যিক চুক্তি</p></div>
-            <div class="expert-card"><i class="fas fa-hand-holding-heart"></i><h3>মানবাধিকার</h3><p>রিট পিটিশন, মৌলিক অধিকার সংরক্ষণ ও মানবপাচার মামলা</p></div>
-            <div class="expert-card"><i class="fas fa-landmark"></i><h3>ফৌজদারি প্রতিরক্ষা</h3><p>উচ্চ আদালতে জামিন, আপিল ও গুরুতর অপরাধের প্রতিরক্ষা</p></div>
-            <div class="expert-card"><i class="fas fa-file-signature"></i><h3>ভূমি ও সম্পত্তি</h3><p>দলিল যাচাই, উত্তরাধিকার ও ভূমি বিরোধ নিষ্পত্তি</p></div>
+            <div class="expert-card fade-up"><i class="fas fa-building"></i><h3>কর্পোরেট আইন</h3><p>কোম্পানি গঠন, মার্জার, শেয়ারহোল্ডার ইস্যু এবং বাণিজ্যিক চুক্তি</p></div>
+            <div class="expert-card fade-up"><i class="fas fa-hand-holding-heart"></i><h3>মানবাধিকার</h3><p>রিট পিটিশন, মৌলিক অধিকার সংরক্ষণ ও মানবপাচার মামলা</p></div>
+            <div class="expert-card fade-up"><i class="fas fa-landmark"></i><h3>ফৌজদারি প্রতিরক্ষা</h3><p>উচ্চ আদালতে জামিন, আপিল ও গুরুতর অপরাধের প্রতিরক্ষা</p></div>
+            <div class="expert-card fade-up"><i class="fas fa-file-signature"></i><h3>ভূমি ও সম্পত্তি</h3><p>দলিল যাচাই, উত্তরাধিকার ও ভূমি বিরোধ নিষ্পত্তি</p></div>
         </div>
     </section>
 
-    <!-- About Section with timeline and modern feel -->
     <section id="about">
         <div class="section-title"><span>ব্যারিস্টার সাদ</span> – পেশাগত যাত্রা</div>
         <div class="about-wrap">
-            <div class="about-text">
+            <div class="about-text fade-up">
                 <p><i class="fas fa-quote-left" style="color:#FBC490; margin-right: 6px;"></i> ব্যারিস্টার সাদ আন্দালিব আরিস্তু লিংকনস ইনের সদস্য হিসেবে যুক্তরাজ্যে বারে ডাকপ্রাপ্ত। দেশে ফিরে তিনি উচ্চ আদালতে আইন চর্চা শুরু করেন এবং বর্তমানে তিনি ঢাকা বার অ্যাসোসিয়েশনের সক্রিয় সদস্য।</p>
                 <p>আন্তর্জাতিক আইন ও স্থানীয় আইনী কাঠামোর গভীর জ্ঞানের মাধ্যমে তিনি জটিল মামলায় অনন্য সাফল্যের স্বাক্ষর রেখেছেন। ক্লায়েন্ট কেন্দ্রিক পদ্ধতি এবং প্রযুক্তি-সমন্বিত আইনি কৌশল তার স্বাতন্ত্র্য।</p>
                 <div class="timeline-item"><strong><i class="fas fa-graduation-cap"></i> ২০০৫</strong> – লিংকনস ইন, ইউকে: বার ভোকেশনাল কোর্স (বিভিসি)</div>
                 <div class="timeline-item"><strong><i class="fas fa-gavel"></i> ২০০৮</strong> – বাংলাদেশ সুপ্রীম কোর্টে আইনজীবী তালিকাভুক্তি</div>
                 <div class="timeline-item"><strong><i class="fas fa-chalkboard-user"></i> ২০১৫</strong> – সিনিয়র আইন উপদেষ্টা, জাতীয় মানবাধিকার কমিশন</div>
             </div>
-            <div class="about-stats">
+            <div class="about-stats fade-up">
                 <h3><i class="fas fa-medal"></i> স্বীকৃতি</h3>
                 <ul style="margin-top: 1rem; list-style: none;">
                     <li>✓ লিগ্যাল ৫০০ - এশিয়ার শীর্ষ আইনজীবী ২০২২</li>
-                    <li>✓ প্রো বোনো অ্যাওয়ার্ড (আইন সহায়তা ট্রিবিউনাল)</li>
+                    <li>✓ প্রো বোনো অ্যাওয়ার্ড (আইন সহায়তা ট্রাইব্যুনাল)</li>
                     <li>✓ সন্মানিত ফেলো, ঢাকা আইন ফোরাম</li>
                 </ul>
                 <div style="margin-top: 2rem;"><i class="fas fa-university"></i> লিংকনস ইন (যুক্তরাজ্য) <br> <span style="color:#FBC490;">অনারেবল সোসাইটি অফ লিংকনস ইন</span></div>
@@ -432,20 +424,19 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
         </div>
     </section>
 
-    <!-- Contact + Modern Interactive Form -->
     <section id="contact">
         <div class="section-title"><span>আইনি পরামর্শ</span> ও যোগাযোগ</div>
         <div class="contact-grid">
-            <div class="contact-form">
+            <div class="contact-form fade-up">
                 <h3>বার্তা পাঠান</h3>
                 <input type="text" placeholder="আপনার নাম" id="nameInput">
                 <input type="email" placeholder="ইমেইল" id="emailInput">
-                <input type="tel" placeholder="মোবাইল নম্বর">
+                <input type="tel" placeholder="মোবাইল নম্বর" id="phoneInput">
                 <textarea rows="4" placeholder="আইনি প্রশ্ন বা মামলার বিবরণ..." id="msgInput"></textarea>
                 <button class="submit-btn" id="submitMsg"><i class="fas fa-paper-plane"></i> বিনামূল্যে পরামর্শের অনুরোধ</button>
                 <div id="formFeedback" style="margin-top: 12px; font-size:0.85rem;"></div>
             </div>
-            <div class="info-card">
+            <div class="info-card fade-up">
                 <i class="fas fa-map-marker-alt" style="font-size: 2rem; color:#FBC490;"></i>
                 <h3>অফিস ঠিকানা</h3>
                 <p>চেম্বার নং ৪০২, বাংলাদেশ সুপ্রীম কোর্ট বার ভবন, ঢাকা-১০০০</p>
@@ -467,156 +458,173 @@ Here is a complete, modern, and interactive portfolio website for Barrister Saad
     </footer>
 </main>
 
-<script type="module">
-    import * as THREE from 'three';
-    import gsap from 'gsap';
-    import { ScrollTrigger } from 'https://unpkg.com/gsap@3.12.5/ScrollTrigger.js';
-    gsap.registerPlugin(ScrollTrigger);
-
-    // --- setup three js futuristic interactive background ---
-    const canvas = document.getElementById('bg-canvas');
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x05050a);
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 2, 12);
-    camera.lookAt(0, 0, 0);
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: false });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-
-    // futuristic particles + rotating torus knot
-    const particleCount = 1800;
-    const particlesGeometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    for(let i = 0; i < particleCount; i++) {
-        positions[i*3] = (Math.random() - 0.5) * 40;
-        positions[i*3+1] = (Math.random() - 0.5) * 20;
-        positions[i*3+2] = (Math.random() - 0.5) * 25 - 10;
-    }
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const particleMaterial = new THREE.PointsMaterial({
-        color: 0xfbc490,
-        size: 0.08,
-        transparent: true,
-        opacity: 0.5,
-        blending: THREE.AdditiveBlending
-    });
-    const particleSystem = new THREE.Points(particlesGeometry, particleMaterial);
-    scene.add(particleSystem);
-
-    const torusKnotGeo = new THREE.TorusKnotGeometry(1.2, 0.28, 180, 24, 3, 4);
-    const knotMat = new THREE.MeshStandardMaterial({ color: 0xe6a05e, emissive: 0x442200, roughness: 0.3, metalness: 0.7 });
-    const knot = new THREE.Mesh(torusKnotGeo, knotMat);
-    knot.position.set(2, -1.2, -3);
-    scene.add(knot);
-    
-    const glowGeo = new THREE.SphereGeometry(0.85, 16, 16);
-    const glowMat = new THREE.MeshBasicMaterial({ color: 0xf59e2e, transparent: true, opacity: 0.1 });
-    const glowSphere = new THREE.Mesh(glowGeo, glowMat);
-    knot.add(glowSphere);
-    
-    // additional floating rings
-    const ringGeo = new THREE.TorusGeometry(1.5, 0.05, 64, 200);
-    const ringMat = new THREE.MeshStandardMaterial({ color: 0xfbc490, emissive: 0x552200 });
-    const ring = new THREE.Mesh(ringGeo, ringMat);
-    ring.position.set(-1.5, 1, -2);
-    scene.add(ring);
-    
-    const ring2 = new THREE.Mesh(ringGeo, ringMat);
-    ring2.position.set(0.5, -0.8, -4);
-    ring2.scale.set(0.7,0.7,0.7);
-    scene.add(ring2);
-    
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0x222222);
-    scene.add(ambientLight);
-    const dirLight = new THREE.DirectionalLight(0xfff5e0, 1);
-    dirLight.position.set(3, 5, 2);
-    scene.add(dirLight);
-    const backLight = new THREE.PointLight(0xaa6f3c, 0.5);
-    backLight.position.set(-2, 1, -5);
-    scene.add(backLight);
-    const fillLight = new THREE.PointLight(0x4a2c1a, 0.4);
-    fillLight.position.set(2, -1, 3);
-    scene.add(fillLight);
-    
-    // animate
-    let time = 0;
-    function animateScene() {
-        requestAnimationFrame(animateScene);
-        time += 0.008;
-        knot.rotation.x = Math.sin(time * 0.4) * 0.3;
-        knot.rotation.y += 0.008;
-        knot.rotation.z = Math.cos(time * 0.2) * 0.2;
-        ring.rotation.x += 0.01;
-        ring.rotation.z += 0.007;
-        ring2.rotation.y += 0.012;
-        ring2.rotation.x += 0.005;
-        particleSystem.rotation.y = time * 0.03;
-        particleSystem.rotation.x = Math.sin(time * 0.1) * 0.1;
+<script>
+    // Simple Three.js background without import maps
+    (function() {
+        const canvas = document.getElementById('bg-canvas');
+        if (!canvas) return;
+        
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x05050a);
+        
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 2, 12);
         camera.lookAt(0, 0, 0);
-        renderer.render(scene, camera);
-    }
-    animateScene();
-    
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
+        
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: false });
         renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-    
-    // --- GSAP scroll animations for cards, hero, etc ---
-    gsap.from(".hero-content", { duration: 1, opacity: 0, y: 70, ease: "power3.out" });
-    gsap.from(".hero-visual", { duration: 1.2, opacity: 0, scale: 0.9, delay: 0.2 });
-    gsap.from(".expert-card", { scrollTrigger: { trigger: "#expertise", start: "top 80%" }, duration: 0.8, opacity: 0, y: 40, stagger: 0.15 });
-    gsap.from(".about-wrap > div", { scrollTrigger: { trigger: "#about", start: "top 80%" }, duration: 0.8, opacity: 0, x: -30, stagger: 0.2 });
-    gsap.from(".contact-grid > div", { scrollTrigger: { trigger: "#contact", start: "top 80%" }, duration: 0.7, opacity: 0, y: 30, stagger: 0.2 });
-    
-    // floating motion for hero card (manual gsap)
-    gsap.to(".floating-card", { y: -12, duration: 2.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
-    
-    // --- Interactive form submission (demo message) ---
-    const submitBtn = document.getElementById('submitMsg');
-    const feedbackDiv = document.getElementById('formFeedback');
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('nameInput').value.trim();
-        const email = document.getElementById('emailInput').value.trim();
-        const msg = document.getElementById('msgInput').value.trim();
-        if(!name || !email || !msg) {
-            feedbackDiv.innerHTML = '<span style="color:#ff9f6e;"><i class="fas fa-exclamation-triangle"></i> দয়া করে নাম, ইমেইল এবং বার্তা পূর্ণ করুন</span>';
-            return;
+        renderer.setPixelRatio(window.devicePixelRatio);
+        
+        // Particles
+        const particleCount = 1500;
+        const particlesGeometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        for(let i = 0; i < particleCount; i++) {
+            positions[i*3] = (Math.random() - 0.5) * 50;
+            positions[i*3+1] = (Math.random() - 0.5) * 30;
+            positions[i*3+2] = (Math.random() - 0.5) * 30 - 10;
         }
-        if(!email.includes('@')) {
-            feedbackDiv.innerHTML = '<span style="color:#ff9f6e;">সঠিক ইমেইল দিন</span>';
-            return;
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0xfbc490,
+            size: 0.07,
+            transparent: true,
+            opacity: 0.4,
+            blending: THREE.AdditiveBlending
+        });
+        const particleSystem = new THREE.Points(particlesGeometry, particleMaterial);
+        scene.add(particleSystem);
+        
+        // Torus Knot
+        const torusKnotGeo = new THREE.TorusKnotGeometry(1.1, 0.25, 180, 24, 3, 4);
+        const knotMat = new THREE.MeshStandardMaterial({ color: 0xe6a05e, emissive: 0x331a00, roughness: 0.3, metalness: 0.6 });
+        const knot = new THREE.Mesh(torusKnotGeo, knotMat);
+        knot.position.set(2, -1, -3);
+        scene.add(knot);
+        
+        // Rings
+        const ringGeo = new THREE.TorusGeometry(1.4, 0.05, 64, 200);
+        const ringMat = new THREE.MeshStandardMaterial({ color: 0xfbc490, emissive: 0x442200 });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.position.set(-1.5, 1, -2);
+        scene.add(ring);
+        
+        const ring2 = new THREE.Mesh(ringGeo, ringMat);
+        ring2.position.set(0.5, -0.8, -4);
+        ring2.scale.set(0.7, 0.7, 0.7);
+        scene.add(ring2);
+        
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0x222222);
+        scene.add(ambientLight);
+        const dirLight = new THREE.DirectionalLight(0xfff5e0, 1);
+        dirLight.position.set(3, 5, 2);
+        scene.add(dirLight);
+        const backLight = new THREE.PointLight(0xaa6f3c, 0.5);
+        backLight.position.set(-2, 1, -5);
+        scene.add(backLight);
+        
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+            knot.rotation.x = Math.sin(time * 0.5) * 0.3;
+            knot.rotation.y += 0.008;
+            knot.rotation.z = Math.cos(time * 0.3) * 0.2;
+            ring.rotation.x += 0.01;
+            ring.rotation.z += 0.007;
+            ring2.rotation.y += 0.012;
+            ring2.rotation.x += 0.005;
+            particleSystem.rotation.y = time * 0.02;
+            particleSystem.rotation.x = Math.sin(time * 0.1) * 0.1;
+            renderer.render(scene, camera);
         }
-        feedbackDiv.innerHTML = '<span style="color:#9bffa2;"><i class="fas fa-check-circle"></i> ধন্যবাদ! ব্যারিস্টার সাদ শীঘ্রই যোগাযোগ করবেন।</span>';
-        document.getElementById('nameInput').value = '';
-        document.getElementById('emailInput').value = '';
-        document.getElementById('msgInput').value = '';
-        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 4000);
-    });
+        animate();
+        
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    })();
     
-    // smooth nav scroll
-    document.querySelectorAll('.nav-links a, .btn-consult').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href && href.startsWith('#')) {
+    // Scroll animations
+    const fadeElements = document.querySelectorAll('.fade-up');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    fadeElements.forEach(el => observer.observe(el));
+    
+    // Smooth navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('data-target');
+            if (targetId) {
                 e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElem = document.getElementById(targetId);
-                if(targetElem) {
-                    targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         });
     });
     
-    // dynamic year
+    // Form submission
+    const submitBtn = document.getElementById('submitMsg');
+    const feedbackDiv = document.getElementById('formFeedback');
+    
+    if (submitBtn) {
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('nameInput')?.value.trim() || '';
+            const email = document.getElementById('emailInput')?.value.trim() || '';
+            const msg = document.getElementById('msgInput')?.value.trim() || '';
+            
+            if (!name || !email || !msg) {
+                feedbackDiv.innerHTML = '<span style="color:#ff9f6e;"><i class="fas fa-exclamation-triangle"></i> দয়া করে নাম, ইমেইল এবং বার্তা পূর্ণ করুন</span>';
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                feedbackDiv.innerHTML = '<span style="color:#ff9f6e;">সঠিক ইমেইল দিন</span>';
+                return;
+            }
+            
+            feedbackDiv.innerHTML = '<span style="color:#9bffa2;"><i class="fas fa-check-circle"></i> ধন্যবাদ! ব্যারিস্টার সাদ শীঘ্রই যোগাযোগ করবেন।</span>';
+            
+            if (document.getElementById('nameInput')) document.getElementById('nameInput').value = '';
+            if (document.getElementById('emailInput')) document.getElementById('emailInput').value = '';
+            if (document.getElementById('phoneInput')) document.getElementById('phoneInput').value = '';
+            if (document.getElementById('msgInput')) document.getElementById('msgInput').value = '';
+            
+            setTimeout(() => { feedbackDiv.innerHTML = ''; }, 4000);
+        });
+    }
+    
+    // Update footer year
     const footerP = document.querySelector('footer p');
-    if(footerP) footerP.innerHTML = footerP.innerHTML.replace('2026', new Date().getFullYear());
+    if (footerP) {
+        footerP.innerHTML = footerP.innerHTML.replace('২০২৬', new Date().getFullYear());
+    }
+    
+    // Initial visible check for any elements already visible
+    setTimeout(() => {
+        fadeElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('visible');
+            }
+        });
+    }, 100);
 </script>
+
+<!-- Load Three.js from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </body>
 </html>
-```
