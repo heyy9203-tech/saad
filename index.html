@@ -2,10 +2,9 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ব্যারিস্টার সাদ আন্দালিব আরিস্তু | আইন পেশাদার পোর্টফোলিও</title>
-    <!-- Google Fonts + Font Awesome CDN (stable) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ব্যারিস্টার সাদ আন্দালিব আরিস্তু | Premium Legal Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,333 +14,403 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0f;
-            color: #ededf2;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            color: #1a1a2e;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        canvas#bg-canvas {
+        /* Premium Glassmorphism Navbar */
+        .navbar {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1300px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 70px;
+            padding: 0.8rem 2rem;
+            z-index: 10000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .logo h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8B5A2B, #D4A373);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo span {
+            font-size: 0.7rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #D4A373;
+        }
+
+        .btn-consult-nav {
+            background: linear-gradient(135deg, #8B5A2B, #D4A373);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(139, 90, 43, 0.3);
+        }
+
+        /* Hero Section - Bright & Premium */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 163, 115, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            color: #8B5A2B;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .hero-title {
+            font-size: 1.3rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #495057;
+            max-width: 500px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #8B5A2B;
+        }
+
+        .stat p {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8B5A2B, #D4A373);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            color: #8B5A2B;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #D4A373;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 90, 43, 0.2);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .premium-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            border: 1px solid rgba(212, 163, 115, 0.3);
+        }
+
+        .premium-card i {
+            font-size: 3rem;
+            color: #D4A373;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+
+        .section-title span {
+            color: #D4A373;
+            border-bottom: 3px solid #D4A373;
+            padding-bottom: 5px;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #D4A373;
+        }
+
+        .expertise-card i {
+            font-size: 2.5rem;
+            color: #D4A373;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card h3 {
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #495057;
+        }
+
+        .timeline {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item {
+            border-left: 3px solid #D4A373;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item strong {
+            color: #8B5A2B;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #D4A373;
+            box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.1);
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #8B5A2B, #D4A373);
+            border-radius: 20px;
+            padding: 2rem;
+            color: white;
+        }
+
+        .info-card i {
+            margin-right: 10px;
+        }
+
+        .info-card .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .info-card .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            color: #6c757d;
+        }
+
+        /* 3D Canvas */
+        #canvas-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            display: block;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .glass-nav {
-            position: fixed;
-            top: 20px;
-            left: 5%;
-            right: 5%;
-            width: 90%;
-            margin: 0 auto;
-            background: rgba(10, 10, 18, 0.75);
-            backdrop-filter: blur(14px);
-            border-radius: 2rem;
-            padding: 0.9rem 2rem;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid rgba(255, 215, 150, 0.25);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #F9D976, #F39F86);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.3px;
-        }
-        .logo span {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: #bfb9c4;
-            display: block;
-            line-height: 1.2;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #e2e2f0;
-            font-weight: 500;
-            transition: 0.2s;
-            font-size: 1rem;
-            letter-spacing: -0.2px;
-            cursor: pointer;
-        }
-        .nav-links a:hover {
-            color: #FBC490;
-            text-shadow: 0 0 6px rgba(251,196,144,0.5);
-        }
-        .btn-consult {
-            background: linear-gradient(95deg, #c29b4b, #b37b2e);
-            padding: 0.5rem 1.4rem;
-            border-radius: 3rem;
-            font-weight: 600;
-            color: #0a0a0f !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        main {
+        .hero, section, footer, .navbar {
             position: relative;
-            z-index: 5;
-        }
-
-        section {
-            padding: 7rem 2rem;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            padding-top: 8rem;
-        }
-        .hero-content {
-            flex: 1.2;
-        }
-        .hero-badge {
-            background: rgba(251,196,144,0.2);
-            border-radius: 40px;
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            backdrop-filter: blur(2px);
-            color: #FBC490;
-            margin-bottom: 1rem;
-        }
-        .hero-content h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            background: linear-gradient(to right, #ffffff, #D9C8A9);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .hero-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin: 1rem 0;
-            color: #CFC9D9;
-        }
-        .hero-desc {
-            font-size: 1.1rem;
-            max-width: 550px;
-            color: #bab5c5;
-            margin: 1.5rem 0;
-        }
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .stat-item h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #FBC490;
-        }
-        .cta-group {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-        .btn-primary, .btn-outline {
-            padding: 0.9rem 2rem;
-            border-radius: 3rem;
-            font-weight: 600;
-            transition: all 0.25s;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            border: none;
-        }
-        .btn-primary {
-            background: linear-gradient(100deg, #FBC490, #E7A45A);
-            color: #0a0a0f;
-            box-shadow: 0 5px 15px rgba(251,196,144,0.3);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #FBC490;
-            color: #FBC490;
-        }
-        .btn-primary:hover, .btn-outline:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.05);
-        }
-        .hero-visual {
-            flex: 0.9;
-            display: flex;
-            justify-content: center;
-        }
-        .floating-card {
-            background: rgba(20, 20, 32, 0.7);
-            backdrop-filter: blur(16px);
-            border-radius: 2.5rem;
-            padding: 1.8rem;
-            border: 1px solid rgba(251,196,144,0.3);
-            width: 280px;
-            text-align: center;
-            animation: float 5s infinite ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px);}
-            50% { transform: translateY(-15px);}
-            100% { transform: translateY(0px);}
-        }
-        .floating-card i {
-            font-size: 3rem;
-            color: #E7A45A;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        .section-title span {
-            color: #FBC490;
-            border-bottom: 3px solid #FBC490;
-            display: inline-block;
-            padding-bottom: 6px;
-        }
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        .expert-card {
-            background: rgba(18, 18, 28, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 2rem 1.5rem;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,215,150,0.2);
-        }
-        .expert-card:hover {
-            border-color: #FBC490;
-            transform: translateY(-8px);
-            background: rgba(25,25,40,0.8);
-        }
-        .expert-card i {
-            font-size: 2.5rem;
-            color: #FBC490;
-            margin-bottom: 1rem;
-        }
-
-        .about-wrap {
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .about-text {
-            flex: 1.2;
-        }
-        .about-text p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-        .about-stats {
-            flex: 0.8;
-            background: rgba(0,0,0,0.4);
-            border-radius: 2rem;
-            padding: 2rem;
-        }
-        .timeline-item {
-            border-left: 2px solid #FBC490;
-            padding-left: 1.5rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            background: #10101c;
-            border: 1px solid #2a2a38;
-            border-radius: 2rem;
-            padding: 1rem 1.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            transition: 0.2s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: #FBC490;
-        }
-        .submit-btn {
-            background: #FBC490;
-            color: #0a0a0f;
-            font-weight: bold;
-            border: none;
-            width: 100%;
-            border-radius: 3rem;
-            padding: 1rem;
-            cursor: pointer;
-        }
-        .info-card {
-            background: rgba(20,20,35,0.6);
-            border-radius: 2rem;
-            padding: 2rem;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid rgba(255,215,150,0.2);
-            margin-top: 3rem;
+            z-index: 2;
         }
 
         @media (max-width: 768px) {
-            .glass-nav { flex-direction: column; gap: 1rem; width: 95%; border-radius: 1.5rem; top: 15px;}
-            .nav-links { gap: 1.2rem; flex-wrap: wrap; justify-content: center;}
-            .hero-content h1 { font-size: 2.5rem;}
-            .contact-grid { grid-template-columns: 1fr;}
-            section { padding: 5rem 1.2rem;}
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                border-radius: 30px;
+                padding: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 150px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .stats {
+                justify-content: center;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
+            .about-container, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
         }
-        .social-links a {
-            color: #bbb;
-            font-size: 1.4rem;
-            margin: 0 8px;
-            transition: 0.2s;
-            display: inline-block;
-        }
-        .social-links a:hover { color: #FBC490;}
-        
-        .fade-up {
+
+        .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .fade-up.visible {
+
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -349,271 +418,298 @@
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
+<div id="canvas-container"></div>
 
-<nav class="glass-nav">
+<nav class="navbar">
     <div class="logo">
-        <h1>ব্যারিস্টার সাদ আন্দালিব</h1>
-        <span>Saad Andalib Aristu | Barrister-at-Law</span>
+        <h1>Barrister Saad Andalib</h1>
+        <span>Advocate, Supreme Court of Bangladesh</span>
     </div>
     <div class="nav-links">
-        <a class="nav-link" data-target="home">হোম</a>
-        <a class="nav-link" data-target="expertise">বিশেষজ্ঞতা</a>
-        <a class="nav-link" data-target="about">পরিচয়</a>
-        <a class="nav-link" data-target="contact">যোগাযোগ</a>
-        <a class="nav-link btn-consult" data-target="contact">ফ্রি কনসালটেশন</a>
+        <a class="nav-link" data-target="home">Home</a>
+        <a class="nav-link" data-target="expertise">Expertise</a>
+        <a class="nav-link" data-target="about">About</a>
+        <a class="nav-link" data-target="contact">Contact</a>
+        <a class="btn-consult-nav nav-link" data-target="contact">Free Consultation</a>
     </div>
 </nav>
 
-<main>
-    <section id="home" class="hero">
-        <div class="hero-content fade-up">
-            <div class="hero-badge"><i class="fas fa-gavel"></i> আইন ও ন্যায়ের পথপ্রদর্শক</div>
-            <h1>Saad Andalib <br> Aristu, Barrister</h1>
-            <div class="hero-title">বাংলাদেশ সুপ্রীম কোর্টের আইনজীবী | মানবাধিকার ও কর্পোরেট আইন বিশেষজ্ঞ</div>
-            <div class="hero-desc">১৫+ বছরের অভিজ্ঞতা, আন্তর্জাতিক আইন ও স্থানীয় ন্যায়ব্যবস্থায় দক্ষতা। কৌশলী আইনি প্রতিনিধিত্ব ও আধুনিক সমাধান।</div>
-            <div class="hero-stats">
-                <div class="stat-item"><h3>২৫০+</h3><p>মামলায় সাফল্য</p></div>
-                <div class="stat-item"><h3>১৫+</h3><p>বছর অনুশীলন</p></div>
-                <div class="stat-item"><h3>৯৮%</h3><p>ক্লায়েন্ট সন্তুষ্টি</p></div>
-            </div>
-            <div class="cta-group">
-                <a class="btn-primary nav-link" data-target="contact"><i class="fas fa-calendar-alt"></i> অ্যাপয়েন্টমেন্ট</a>
-                <a class="btn-outline nav-link" data-target="about"><i class="fas fa-arrow-right"></i> জীবনবৃত্তান্ত</a>
-            </div>
+<section id="home" class="hero">
+    <div class="hero-content fade-in">
+        <div class="hero-badge">
+            <i class="fas fa-gavel"></i> Premier Legal Counsel
         </div>
-        <div class="hero-visual fade-up">
-            <div class="floating-card">
-                <i class="fas fa-balance-scale"></i>
-                <h3>এক্সিলেন্স ইন জাস্টিস</h3>
-                <p style="font-size: 0.8rem; margin-top: 0.5rem;">ব্যারিস্টার অ্যাট লিংকনস ইন</p>
-                <i class="fas fa-certificate" style="font-size: 1.5rem;"></i>
-            </div>
+        <h1>Saad Andalib <br>Aristu, Barrister</h1>
+        <div class="hero-title">Corporate & Human Rights Lawyer | Supreme Court of Bangladesh</div>
+        <div class="hero-desc">With over 15 years of distinguished practice, providing strategic legal solutions with integrity and excellence.</div>
+        <div class="stats">
+            <div class="stat"><h3>250+</h3><p>Cases Won</p></div>
+            <div class="stat"><h3>15+</h3><p>Years Experience</p></div>
+            <div class="stat"><h3>98%</h3><p>Success Rate</p></div>
         </div>
-    </section>
+        <div class="cta-buttons">
+            <button class="btn-primary nav-link" data-target="contact"><i class="fas fa-calendar-check"></i> Schedule Meeting</button>
+            <button class="btn-secondary nav-link" data-target="about"><i class="fas fa-user"></i> Learn More</button>
+        </div>
+    </div>
+    <div class="hero-image fade-in">
+        <div class="premium-card">
+            <i class="fas fa-balance-scale"></i>
+            <h3>Lincoln's Inn</h3>
+            <p>Barrister-at-Law</p>
+            <i class="fas fa-certificate" style="font-size: 1.5rem;"></i>
+        </div>
+    </div>
+</section>
 
-    <section id="expertise">
-        <div class="section-title"><span>আইনি দক্ষতা</span> ও বিশেষায়িত ক্ষেত্র</div>
-        <div class="expertise-grid">
-            <div class="expert-card fade-up"><i class="fas fa-building"></i><h3>কর্পোরেট আইন</h3><p>কোম্পানি গঠন, মার্জার, শেয়ারহোল্ডার ইস্যু এবং বাণিজ্যিক চুক্তি</p></div>
-            <div class="expert-card fade-up"><i class="fas fa-hand-holding-heart"></i><h3>মানবাধিকার</h3><p>রিট পিটিশন, মৌলিক অধিকার সংরক্ষণ ও মানবপাচার মামলা</p></div>
-            <div class="expert-card fade-up"><i class="fas fa-landmark"></i><h3>ফৌজদারি প্রতিরক্ষা</h3><p>উচ্চ আদালতে জামিন, আপিল ও গুরুতর অপরাধের প্রতিরক্ষা</p></div>
-            <div class="expert-card fade-up"><i class="fas fa-file-signature"></i><h3>ভূমি ও সম্পত্তি</h3><p>দলিল যাচাই, উত্তরাধিকার ও ভূমি বিরোধ নিষ্পত্তি</p></div>
+<section id="expertise">
+    <div class="section-title"><span>Areas of Expertise</span></div>
+    <div class="expertise-grid">
+        <div class="expertise-card fade-in">
+            <i class="fas fa-building"></i>
+            <h3>Corporate Law</h3>
+            <p>Company formation, mergers, acquisitions, corporate governance, and commercial contracts.</p>
         </div>
-    </section>
-
-    <section id="about">
-        <div class="section-title"><span>ব্যারিস্টার সাদ</span> – পেশাগত যাত্রা</div>
-        <div class="about-wrap">
-            <div class="about-text fade-up">
-                <p><i class="fas fa-quote-left" style="color:#FBC490; margin-right: 6px;"></i> ব্যারিস্টার সাদ আন্দালিব আরিস্তু লিংকনস ইনের সদস্য হিসেবে যুক্তরাজ্যে বারে ডাকপ্রাপ্ত। দেশে ফিরে তিনি উচ্চ আদালতে আইন চর্চা শুরু করেন এবং বর্তমানে তিনি ঢাকা বার অ্যাসোসিয়েশনের সক্রিয় সদস্য।</p>
-                <p>আন্তর্জাতিক আইন ও স্থানীয় আইনী কাঠামোর গভীর জ্ঞানের মাধ্যমে তিনি জটিল মামলায় অনন্য সাফল্যের স্বাক্ষর রেখেছেন। ক্লায়েন্ট কেন্দ্রিক পদ্ধতি এবং প্রযুক্তি-সমন্বিত আইনি কৌশল তার স্বাতন্ত্র্য।</p>
-                <div class="timeline-item"><strong><i class="fas fa-graduation-cap"></i> ২০০৫</strong> – লিংকনস ইন, ইউকে: বার ভোকেশনাল কোর্স (বিভিসি)</div>
-                <div class="timeline-item"><strong><i class="fas fa-gavel"></i> ২০০৮</strong> – বাংলাদেশ সুপ্রীম কোর্টে আইনজীবী তালিকাভুক্তি</div>
-                <div class="timeline-item"><strong><i class="fas fa-chalkboard-user"></i> ২০১৫</strong> – সিনিয়র আইন উপদেষ্টা, জাতীয় মানবাধিকার কমিশন</div>
-            </div>
-            <div class="about-stats fade-up">
-                <h3><i class="fas fa-medal"></i> স্বীকৃতি</h3>
-                <ul style="margin-top: 1rem; list-style: none;">
-                    <li>✓ লিগ্যাল ৫০০ - এশিয়ার শীর্ষ আইনজীবী ২০২২</li>
-                    <li>✓ প্রো বোনো অ্যাওয়ার্ড (আইন সহায়তা ট্রাইব্যুনাল)</li>
-                    <li>✓ সন্মানিত ফেলো, ঢাকা আইন ফোরাম</li>
-                </ul>
-                <div style="margin-top: 2rem;"><i class="fas fa-university"></i> লিংকনস ইন (যুক্তরাজ্য) <br> <span style="color:#FBC490;">অনারেবল সোসাইটি অফ লিংকনস ইন</span></div>
-            </div>
+        <div class="expertise-card fade-in">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Human Rights</h3>
+            <p>Constitutional rights, writ petitions, civil liberties, and international human rights law.</p>
         </div>
-    </section>
+        <div class="expertise-card fade-in">
+            <i class="fas fa-landmark"></i>
+            <h3>Criminal Defense</h3>
+            <p>High Court bail, appeals, white-collar crime, and serious criminal defense.</p>
+        </div>
+        <div class="expertise-card fade-in">
+            <i class="fas fa-file-signature"></i>
+            <h3>Property & Land</h3>
+            <p>Land disputes, property registration, inheritance, and real estate litigation.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="contact">
-        <div class="section-title"><span>আইনি পরামর্শ</span> ও যোগাযোগ</div>
-        <div class="contact-grid">
-            <div class="contact-form fade-up">
-                <h3>বার্তা পাঠান</h3>
-                <input type="text" placeholder="আপনার নাম" id="nameInput">
-                <input type="email" placeholder="ইমেইল" id="emailInput">
-                <input type="tel" placeholder="মোবাইল নম্বর" id="phoneInput">
-                <textarea rows="4" placeholder="আইনি প্রশ্ন বা মামলার বিবরণ..." id="msgInput"></textarea>
-                <button class="submit-btn" id="submitMsg"><i class="fas fa-paper-plane"></i> বিনামূল্যে পরামর্শের অনুরোধ</button>
-                <div id="formFeedback" style="margin-top: 12px; font-size:0.85rem;"></div>
+<section id="about">
+    <div class="section-title"><span>Professional Background</span></div>
+    <div class="about-container">
+        <div class="about-text fade-in">
+            <p><i class="fas fa-quote-left" style="color: #D4A373; margin-right: 10px;"></i> Barrister Saad Andalib Aristu was called to the Bar at Lincoln's Inn, UK. Upon returning to Bangladesh, he established a distinguished practice at the Supreme Court, specializing in corporate and human rights law.</p>
+            <p>His approach combines traditional legal excellence with modern technology, ensuring clients receive efficient, strategic, and results-driven representation. He is regularly consulted by major corporations and international NGOs.</p>
+            <p>Committed to access to justice, Barrister Saad also provides pro bono services to underprivileged communities and actively contributes to legal education as a visiting faculty member.</p>
+        </div>
+        <div class="timeline fade-in">
+            <div class="timeline-item">
+                <strong><i class="fas fa-graduation-cap"></i> 2005</strong><br>
+                Lincoln's Inn, UK - Bar Vocational Course
             </div>
-            <div class="info-card fade-up">
-                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color:#FBC490;"></i>
-                <h3>অফিস ঠিকানা</h3>
-                <p>চেম্বার নং ৪০২, বাংলাদেশ সুপ্রীম কোর্ট বার ভবন, ঢাকা-১০০০</p>
-                <i class="fas fa-phone-alt"></i> <strong>+৮৮০ ১৯৮২-৪৫৬৭৮৯</strong><br>
-                <i class="fas fa-envelope"></i> chambers@saadlaw.bd<br>
-                <div class="social-links" style="margin-top: 1.5rem;">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <hr style="margin: 1.5rem 0; opacity:0.3;">
-                <p><i class="fas fa-clock"></i> সোম-শুক্র : ১০am - ৬pm, শনিবার পূর্বানুমতি সাপেক্ষে</p>
+            <div class="timeline-item">
+                <strong><i class="fas fa-gavel"></i> 2008</strong><br>
+                Enrolled as Advocate, Supreme Court of Bangladesh
+            </div>
+            <div class="timeline-item">
+                <strong><i class="fas fa-trophy"></i> 2015</strong><br>
+                Senior Legal Advisor, National Human Rights Commission
+            </div>
+            <div class="timeline-item">
+                <strong><i class="fas fa-award"></i> 2022</strong><br>
+                Legal 500 Asia - Top Recommended Lawyer
             </div>
         </div>
-    </section>
-    <footer>
-        <p>© ২০২৬ ব্যারিস্টার সাদ আন্দালিব আরিস্তু | সমস্ত আইনি অধিকার সংরক্ষিত | আধুনিক আইন পেশা, ডিজিটাল বাংলাদেশ</p>
-    </footer>
-</main>
+    </div>
+</section>
 
+<section id="contact">
+    <div class="section-title"><span>Get in Touch</span></div>
+    <div class="contact-grid">
+        <div class="contact-form fade-in">
+            <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="tel" id="phone" placeholder="Phone Number">
+            <textarea rows="4" id="message" placeholder="Describe your legal matter..."></textarea>
+            <button class="btn-primary" id="submitForm" style="width: 100%; justify-content: center;">
+                <i class="fas fa-paper-plane"></i> Request Consultation
+            </button>
+            <div id="form-message" style="margin-top: 1rem; text-align: center;"></div>
+        </div>
+        <div class="info-card fade-in">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3 style="margin: 0.5rem 0;">Office Address</h3>
+            <p>Chamber No. 402, Supreme Court Bar Building, Dhaka-1000, Bangladesh</p>
+            <p><i class="fas fa-phone"></i> +880 1982-456789</p>
+            <p><i class="fas fa-envelope"></i> chambers@saadlaw.bd</p>
+            <hr style="margin: 1.5rem 0; opacity: 0.3;">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p style="margin-top: 1.5rem;"><i class="fas fa-clock"></i> Mon-Fri: 10am - 6pm</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 Barrister Saad Andalib Aristu | All Rights Reserved | Excellence in Legal Practice</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // Simple Three.js background without import maps
-    (function() {
-        const canvas = document.getElementById('bg-canvas');
-        if (!canvas) return;
+    // Initialize Three.js Scene (Elegant, bright, professional)
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf5f7fa);
+    
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 2, 15);
+    
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0xf5f7fa, 1);
+    container.appendChild(renderer.domElement);
+    
+    // Create elegant floating particles (golden)
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 800;
+    const posArray = new Float32Array(particlesCount * 3);
+    for(let i = 0; i < particlesCount * 3; i += 3) {
+        posArray[i] = (Math.random() - 0.5) * 40;
+        posArray[i+1] = (Math.random() - 0.5) * 20;
+        posArray[i+2] = (Math.random() - 0.5) * 30 - 10;
+    }
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMaterial = new THREE.PointsMaterial({
+        color: 0xD4A373,
+        size: 0.08,
+        transparent: true,
+        opacity: 0.4,
+        blending: THREE.AdditiveBlending
+    });
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+    
+    // Create a golden torus knot
+    const geometry = new THREE.TorusKnotGeometry(1.2, 0.3, 200, 32, 3, 4);
+    const material = new THREE.MeshStandardMaterial({ 
+        color: 0xD4A373, 
+        emissive: 0x8B5A2B, 
+        emissiveIntensity: 0.2,
+        roughness: 0.3,
+        metalness: 0.8
+    });
+    const torusKnot = new THREE.Mesh(geometry, material);
+    torusKnot.position.set(2, -0.5, -5);
+    scene.add(torusKnot);
+    
+    // Add floating rings
+    const ringGeo = new THREE.TorusGeometry(1.8, 0.05, 64, 200);
+    const ringMat = new THREE.MeshStandardMaterial({ color: 0xD4A373, emissive: 0x8B5A2B, emissiveIntensity: 0.1 });
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.position.set(-2, 1, -4);
+    scene.add(ring);
+    
+    const ring2 = new THREE.Mesh(ringGeo, ringMat);
+    ring2.position.set(0.5, -1, -6);
+    ring2.scale.set(0.6, 0.6, 0.6);
+    scene.add(ring2);
+    
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+    const backLight = new THREE.PointLight(0xD4A373, 0.5);
+    backLight.position.set(-2, 1, -3);
+    scene.add(backLight);
+    const fillLight = new THREE.PointLight(0xffffff, 0.3);
+    fillLight.position.set(2, 2, 3);
+    scene.add(fillLight);
+    
+    // Animation
+    let time = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        time += 0.01;
         
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x05050a);
+        torusKnot.rotation.x = Math.sin(time * 0.3) * 0.2;
+        torusKnot.rotation.y += 0.005;
+        torusKnot.rotation.z = Math.cos(time * 0.2) * 0.1;
         
-        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(0, 2, 12);
-        camera.lookAt(0, 0, 0);
+        ring.rotation.x += 0.008;
+        ring.rotation.z += 0.005;
+        ring2.rotation.y += 0.01;
+        ring2.rotation.x += 0.007;
         
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: false });
+        particlesMesh.rotation.y = time * 0.02;
+        particlesMesh.rotation.x = Math.sin(time * 0.1) * 0.05;
+        
+        renderer.render(scene, camera);
+    }
+    animate();
+    
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        
-        // Particles
-        const particleCount = 1500;
-        const particlesGeometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        for(let i = 0; i < particleCount; i++) {
-            positions[i*3] = (Math.random() - 0.5) * 50;
-            positions[i*3+1] = (Math.random() - 0.5) * 30;
-            positions[i*3+2] = (Math.random() - 0.5) * 30 - 10;
-        }
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        const particleMaterial = new THREE.PointsMaterial({
-            color: 0xfbc490,
-            size: 0.07,
-            transparent: true,
-            opacity: 0.4,
-            blending: THREE.AdditiveBlending
-        });
-        const particleSystem = new THREE.Points(particlesGeometry, particleMaterial);
-        scene.add(particleSystem);
-        
-        // Torus Knot
-        const torusKnotGeo = new THREE.TorusKnotGeometry(1.1, 0.25, 180, 24, 3, 4);
-        const knotMat = new THREE.MeshStandardMaterial({ color: 0xe6a05e, emissive: 0x331a00, roughness: 0.3, metalness: 0.6 });
-        const knot = new THREE.Mesh(torusKnotGeo, knotMat);
-        knot.position.set(2, -1, -3);
-        scene.add(knot);
-        
-        // Rings
-        const ringGeo = new THREE.TorusGeometry(1.4, 0.05, 64, 200);
-        const ringMat = new THREE.MeshStandardMaterial({ color: 0xfbc490, emissive: 0x442200 });
-        const ring = new THREE.Mesh(ringGeo, ringMat);
-        ring.position.set(-1.5, 1, -2);
-        scene.add(ring);
-        
-        const ring2 = new THREE.Mesh(ringGeo, ringMat);
-        ring2.position.set(0.5, -0.8, -4);
-        ring2.scale.set(0.7, 0.7, 0.7);
-        scene.add(ring2);
-        
-        // Lights
-        const ambientLight = new THREE.AmbientLight(0x222222);
-        scene.add(ambientLight);
-        const dirLight = new THREE.DirectionalLight(0xfff5e0, 1);
-        dirLight.position.set(3, 5, 2);
-        scene.add(dirLight);
-        const backLight = new THREE.PointLight(0xaa6f3c, 0.5);
-        backLight.position.set(-2, 1, -5);
-        scene.add(backLight);
-        
-        let time = 0;
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 0.01;
-            knot.rotation.x = Math.sin(time * 0.5) * 0.3;
-            knot.rotation.y += 0.008;
-            knot.rotation.z = Math.cos(time * 0.3) * 0.2;
-            ring.rotation.x += 0.01;
-            ring.rotation.z += 0.007;
-            ring2.rotation.y += 0.012;
-            ring2.rotation.x += 0.005;
-            particleSystem.rotation.y = time * 0.02;
-            particleSystem.rotation.x = Math.sin(time * 0.1) * 0.1;
-            renderer.render(scene, camera);
-        }
-        animate();
-        
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-    })();
+    });
     
     // Scroll animations
-    const fadeElements = document.querySelectorAll('.fade-up');
-    
+    const fadeElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1 });
     
     fadeElements.forEach(el => observer.observe(el));
     
     // Smooth navigation
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('data-target');
-            if (targetId) {
+            const target = link.getAttribute('data-target');
+            if (target) {
                 e.preventDefault();
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const element = document.getElementById(target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         });
     });
     
     // Form submission
-    const submitBtn = document.getElementById('submitMsg');
-    const feedbackDiv = document.getElementById('formFeedback');
+    document.getElementById('submitForm').addEventListener('click', function() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const formMessage = document.getElementById('form-message');
+        
+        if (!name || !email || !message) {
+            formMessage.innerHTML = '<span style="color: #dc3545;"><i class="fas fa-exclamation-circle"></i> Please fill all required fields.</span>';
+            return;
+        }
+        
+        if (!email.includes('@')) {
+            formMessage.innerHTML = '<span style="color: #dc3545;"><i class="fas fa-exclamation-circle"></i> Please enter a valid email.</span>';
+            return;
+        }
+        
+        formMessage.innerHTML = '<span style="color: #28a745;"><i class="fas fa-check-circle"></i> Thank you! Barrister Saad will contact you within 24 hours.</span>';
+        
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('message').value = '';
+        
+        setTimeout(() => {
+            formMessage.innerHTML = '';
+        }, 5000);
+    });
     
-    if (submitBtn) {
-        submitBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('nameInput')?.value.trim() || '';
-            const email = document.getElementById('emailInput')?.value.trim() || '';
-            const msg = document.getElementById('msgInput')?.value.trim() || '';
-            
-            if (!name || !email || !msg) {
-                feedbackDiv.innerHTML = '<span style="color:#ff9f6e;"><i class="fas fa-exclamation-triangle"></i> দয়া করে নাম, ইমেইল এবং বার্তা পূর্ণ করুন</span>';
-                return;
-            }
-            if (!email.includes('@') || !email.includes('.')) {
-                feedbackDiv.innerHTML = '<span style="color:#ff9f6e;">সঠিক ইমেইল দিন</span>';
-                return;
-            }
-            
-            feedbackDiv.innerHTML = '<span style="color:#9bffa2;"><i class="fas fa-check-circle"></i> ধন্যবাদ! ব্যারিস্টার সাদ শীঘ্রই যোগাযোগ করবেন।</span>';
-            
-            if (document.getElementById('nameInput')) document.getElementById('nameInput').value = '';
-            if (document.getElementById('emailInput')) document.getElementById('emailInput').value = '';
-            if (document.getElementById('phoneInput')) document.getElementById('phoneInput').value = '';
-            if (document.getElementById('msgInput')) document.getElementById('msgInput').value = '';
-            
-            setTimeout(() => { feedbackDiv.innerHTML = ''; }, 4000);
-        });
-    }
-    
-    // Update footer year
-    const footerP = document.querySelector('footer p');
-    if (footerP) {
-        footerP.innerHTML = footerP.innerHTML.replace('২০২৬', new Date().getFullYear());
-    }
-    
-    // Initial visible check for any elements already visible
+    // Initial check for visible elements
     setTimeout(() => {
         fadeElements.forEach(el => {
             const rect = el.getBoundingClientRect();
@@ -622,9 +718,9 @@
             }
         });
     }, 100);
+    
+    // Update footer year
+    document.querySelector('footer p').innerHTML = `© ${new Date().getFullYear()} Barrister Saad Andalib Aristu | All Rights Reserved | Excellence in Legal Practice`;
 </script>
-
-<!-- Load Three.js from CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </body>
 </html>
